@@ -14,19 +14,26 @@ namespace Application.Services
     {
         private readonly IBaseRepository<User> _UserRepository;
 
-        public UserService(IBaseRepository<User> buildingRepository)
+        public UserService(IBaseRepository<User> userRepository)
         {
-            _UserRepository = buildingRepository;
+            _UserRepository = userRepository;
         }
 
-        public async Task<User> CreateAsync(User building, CancellationToken token = default)
+        public async Task<User> CreateAsync(User user, CancellationToken token = default)
         {
-            return await _UserRepository.CreateAsync(building, token);
+            return await _UserRepository.CreateAsync(user, token);
         }
 
-        public async Task<bool> DeleteAsync(User Users, CancellationToken token = default)
+ 
+
+        public async Task<bool> DeleteAsync(int id, CancellationToken token = default)
         {
-            return await _UserRepository.DeleteAsync(Users, token);
+            var entity = await _UserRepository.GetAsync(id, token);
+
+            if (entity == null)
+                return false;
+
+            return await _UserRepository.DeleteAsync(entity, token);
         }
 
         public async Task<IEnumerable<User>> GetAllAsync(CancellationToken token = default)
