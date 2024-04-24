@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Produccer: BaseEntity
+    public class Producer: BaseEntity
     {
         
         public string Name { get; set; }

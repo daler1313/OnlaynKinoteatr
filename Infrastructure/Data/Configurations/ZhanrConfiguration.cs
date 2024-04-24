@@ -13,7 +13,9 @@ namespace Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Zhanr> builder)
         {
-            builder.
+            builder.HasKey(x => x.Id);
+            builder.Property(a => a.Nazvanie)
+                .IsRequired();
         }
     }
 }

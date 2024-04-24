@@ -12,7 +12,7 @@ namespace Domain.Entities
         public Reyting Reyting { get; set; }
         public Zhanr Zhanrs { get; set; }
         public int Zhanr_id { get; set; }
-        public Produccer Produccers { get; set; }
+        public Producer Produccers { get; set; }
         public int Produccer_id { get; set; }
         public virtual ICollection<Prosmotry> Prosmotrys { get; set; }
     }

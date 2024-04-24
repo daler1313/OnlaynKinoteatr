@@ -23,7 +23,7 @@ namespace Infrastructure.Data
             base.OnModelCreating(builder);
         }
         public DbSet<Films> Films { get; set; }
-        public DbSet<Produccer> produccers { get; set; }
+        public DbSet<Producer> produccers { get; set; }
         public DbSet<Prosmotry> prosmotries { get; set; }
         public DbSet<User> users { get; set; }
         public DbSet<Zhanr> zhanrs { get; set; }

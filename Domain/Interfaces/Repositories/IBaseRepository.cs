@@ -14,5 +14,6 @@ namespace Domain.Interfaces.Repositories
         Task<TEntity> CreateAsync(TEntity entity, CancellationToken token = default);
         Task<bool> UpdateAsync(TEntity entity, CancellationToken token = default);
         Task<bool> DeleteAsync(TEntity entity, CancellationToken token = default);
+        Task<T> GetAsync<T>(int id, CancellationToken token);
     }
 }

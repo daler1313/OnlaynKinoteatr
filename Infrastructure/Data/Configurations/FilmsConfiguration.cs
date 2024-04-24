@@ -14,9 +14,20 @@ namespace Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Films> builder)
         {
-            builder.HasKey(a => a.Id)
-                builder.Property(a => a.Name)
-                .IsRequired()
+            builder.HasKey(a => a.Id);
+
+            builder.Property(a => a.Name)
+                .IsRequired();
+
+            builder.HasOne(a => a.Zhanrs)
+                .WithMany(az => az.Films)
+                .HasForeignKey(a => a.Zhanr_id)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(a => a.Produccers)
+                .WithMany(az => az.Films)
+                .HasForeignKey(a => a.Produccer_id)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
